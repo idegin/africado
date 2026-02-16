@@ -46,3 +46,25 @@ Africado Consulting (officially *Africado Integrated Services Ltd*) is a Nigeria
 **Mission:** Empowering African organizations for sustainable growth  
 
 **Notable clients:** World Bank, UNFPA, NIMC, AFEX, Population Council, Christian Aid, ActionAid, NOUN, and Nigerian government agencies.
+
+# Contact Info
+*AFRICADO* 
+
+Address: 1 M.M. Alkali Street, 442 Crescent, CITEC Villa Estate, 4th Avenue, Gwarinpa, Abuja, Nigeria.
+
+Phones: (+234) 704 747 0548
+
+Email: africadonig@gmail.com
+
+Social Media:
+LinkedIn: https://www.linkedin.com/company/africado-nigeria
+
+Instagram: @africadoconsulting 
+
+ Facebook: Africado Consulting
+
+YouTube: @africado_consulting
+
+X: Africado-consulting
+
+Tiktok: Africado Consulting

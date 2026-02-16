@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { IconTarget, IconEye, IconCheck } from "@tabler/icons-react"
+import { IconTarget, IconEye } from "@tabler/icons-react"
 
 export function About() {
     return (
@@ -63,7 +63,7 @@ export function About() {
 
                     <div className="pt-4">
                         <Button asChild size="lg">
-                            <Link href="#contact">Contact Us</Link>
+                            <Link href="/contact">Contact Us</Link>
                         </Button>
                     </div>
                 </div>

@@ -19,21 +19,21 @@ export function Header() {
 
     const navLinks = [
         { name: "Home", href: "/" },
-        { name: "About", href: "#about" },
+        { name: "About", href: "/about" },
         // Services is handled separately
-        { name: "Blog", href: "#blog" },
-        { name: "Contact", href: "#contact" },
+        { name: "Blog", href: "/blog" },
+        { name: "Contact", href: "/contact" },
     ]
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/90">
             <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
                 <Link href="/" className="flex items-center space-x-2">
-                    <span className="text-xl font-bold tracking-tight text-primary">Africado</span>
+                    <span className="text-2xl font-bold tracking-tight text-primary" style={{ fontFamily: 'monospace' }}>Africado</span>
                 </Link>
                 <nav className="hidden md:flex gap-6 text-sm font-medium items-center">
                     <Link href="/" className="text-muted-foreground transition-colors hover:text-primary">Home</Link>
-                    <Link href="#about" className="text-muted-foreground transition-colors hover:text-primary">About</Link>
+                    <Link href="/about" className="text-muted-foreground transition-colors hover:text-primary">About</Link>
 
                     <DropdownMenu>
                         <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground transition-colors hover:text-primary outline-none">
@@ -48,8 +48,8 @@ export function Header() {
                         </DropdownMenuContent>
                     </DropdownMenu>
 
-                    <Link href="#blog" className="text-muted-foreground transition-colors hover:text-primary">Blog</Link>
-                    <Link href="#contact" className="text-muted-foreground transition-colors hover:text-primary">Contact</Link>
+                    <Link href="/blog" className="text-muted-foreground transition-colors hover:text-primary">Blog</Link>
+                    <Link href="/contact" className="text-muted-foreground transition-colors hover:text-primary">Contact</Link>
                 </nav>
                 <div className="flex items-center gap-4">
                     <div className="hidden md:block">
@@ -65,15 +65,15 @@ export function Header() {
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end" className="w-[240px]">
                                 <DropdownMenuItem asChild><Link href="/" className="w-full cursor-pointer">Home</Link></DropdownMenuItem>
-                                <DropdownMenuItem asChild><Link href="#about" className="w-full cursor-pointer">About</Link></DropdownMenuItem>
+                                <DropdownMenuItem asChild><Link href="/about" className="w-full cursor-pointer">About</Link></DropdownMenuItem>
                                 <div className="px-2 py-1.5 text-sm font-semibold text-muted-foreground">Services</div>
                                 {services.map((service) => (
                                     <DropdownMenuItem key={service.name} asChild className="pl-6">
                                         <Link href={service.href} className="w-full cursor-pointer">{service.name}</Link>
                                     </DropdownMenuItem>
                                 ))}
-                                <DropdownMenuItem asChild><Link href="#blog" className="w-full cursor-pointer">Blog</Link></DropdownMenuItem>
-                                <DropdownMenuItem asChild><Link href="#contact" className="w-full cursor-pointer">Contact</Link></DropdownMenuItem>
+                                <DropdownMenuItem asChild><Link href="/blog" className="w-full cursor-pointer">Blog</Link></DropdownMenuItem>
+                                <DropdownMenuItem asChild><Link href="/contact" className="w-full cursor-pointer">Contact</Link></DropdownMenuItem>
                                 <div className="p-2 pt-4">
                                     <Button className="w-full">Get Started</Button>
                                 </div>
