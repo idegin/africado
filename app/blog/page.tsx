@@ -69,7 +69,7 @@ export default function BlogListingPage() {
                 title="Strategic Insights"
                 subtitle="Thought leadership and evidence-based analysis for the African institutional landscape."
                 breadcrumbs={[{ label: "Blog", href: "/blog" }]}
-                backgroundImage="https://images.unsplash.com/photo-1497215842964-212927fa356c?auto=format&fit=crop&q=80&w=2000"
+                backgroundImage="https://media.istockphoto.com/id/911721268/photo/minimal-work-space-creative-flat-lay-photo-of-workspace-desk-top-view-office-desk-with-laptop.jpg?s=612x612&w=0&k=20&c=413hwqf6vf5BUL3HcsQYam2sSxwUXGs_ttskwZ_csug="
             />
 
             <div className="container mx-auto px-4 md:px-6 mt-24">

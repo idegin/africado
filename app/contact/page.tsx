@@ -19,7 +19,7 @@ export default function ContactPage() {
                 breadcrumbs={[
                     { label: "Contact", href: "/contact" }
                 ]}
-                backgroundImage="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=2000"
+                backgroundImage="https://media.istockphoto.com/id/1365826237/photo/portrait-of-successful-african-american-businessman-on-the-street-of-the-central-business.jpg?s=612x612&w=0&k=20&c=3AFjlv3mMELul0C9vump-3cGCD_7UACW4V2nSualqZo="
             />
 
             <section className="py-24 bg-background">

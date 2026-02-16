@@ -17,7 +17,7 @@ export function PageHero({
     breadcrumbs
 }: PageHeroProps) {
     return (
-        <section className="relative h-[400px] flex items-center overflow-hidden">
+        <section className="relative h-[500px] flex items-center overflow-hidden">
             {/* Background with Overlay */}
             <div className="absolute inset-0 z-0">
                 <img
@@ -26,9 +26,8 @@ export function PageHero({
                     className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
-                <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-background/20 via-transparent to-transparent" />
 
-                {/* African-inspired Pattern Overlay */}
                 <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }} />
             </div>
 
