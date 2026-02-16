@@ -6,6 +6,7 @@ import { Credentials } from "@/components/marketing/about/Credentials"
 import { Reach } from "@/components/marketing/about/Reach"
 import { FinalCTA } from "@/components/marketing/about/FinalCTA"
 import { Clients } from "@/components/marketing/Clients"
+import { Leadership } from "@/components/marketing/Leadership"
 
 export const metadata = {
     title: "About Us | Africado Consulting",
@@ -27,6 +28,8 @@ export default function AboutPage() {
             <VisionMission />
 
             <CoreValues />
+
+            <Leadership />
 
             <Credentials />
 

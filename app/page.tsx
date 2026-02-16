@@ -4,6 +4,7 @@ import { Services } from "@/components/marketing/Services";
 import { Clients } from "@/components/marketing/Clients";
 import { Blog } from "@/components/marketing/Blog";
 import { CTA } from "@/components/marketing/CTA";
+import { Testimonials } from "@/components/marketing/Testimonials";
 
 export default function Home() {
     return (
@@ -12,8 +13,9 @@ export default function Home() {
             <Clients />
             <About />
             <Services />
-            <Blog />
+            <Testimonials />
             <CTA />
+            <Blog />
         </>
     );
 }
