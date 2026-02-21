@@ -16,6 +16,8 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+ARG IDEGIN_CLOUD_SECRET_KEY
+ENV IDEGIN_CLOUD_SECRET_KEY=$IDEGIN_CLOUD_SECRET_KEY
 RUN pnpm build
 
 # Production image, copy all the files and run next

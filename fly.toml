@@ -5,6 +5,8 @@ primary_region = "iad"
 
 [build]
   dockerfile = "Dockerfile"
+  [build.args]
+    IDEGIN_CLOUD_SECRET_KEY = "sk_17717019_mlwpmb6c_iGmzHk_tZ06sQpxabwifq2DJbRLxxSZ1wh8w-EN3sHo"
 
 [http_service]
   internal_port = 3000
