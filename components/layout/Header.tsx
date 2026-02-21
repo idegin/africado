@@ -11,19 +11,20 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { IconMenu2, IconX, IconChevronDown, IconArrowRight } from "@tabler/icons-react"
-import { services as sharedServices } from "@/lib/data"
 import { cn } from "@/lib/utils"
 
-export function Header() {
+interface HeaderProps {
+    services: { name: string; href: string }[]
+}
+
+export function Header({ services }: HeaderProps) {
     const [isOpen, setIsOpen] = useState(false)
     const pathname = usePathname()
 
-    // Close mobile menu on path change
     useEffect(() => {
         setIsOpen(false)
     }, [pathname])
 
-    // Prevent scroll when mobile menu is open
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden"
@@ -31,11 +32,6 @@ export function Header() {
             document.body.style.overflow = "unset"
         }
     }, [isOpen])
-
-    const services = sharedServices.map(s => ({
-        name: s.title,
-        href: `/services/${s.id}`
-    }))
 
     const navLinks = [
         { name: "Home", href: "/" },

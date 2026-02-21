@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/field"
 import { IconSend, IconLoader2, IconCircleCheck } from "@tabler/icons-react"
 
-export function ContactForm() {
+export function ContactForm({ services }: { services: { name: string; slug: string }[] }) {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
 
@@ -97,11 +97,9 @@ export function ContactForm() {
                                 <SelectValue placeholder="Select a service" />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="training">Training & Capacity Building</SelectItem>
-                                <SelectItem value="strategy">Strategy Development</SelectItem>
-                                <SelectItem value="research">R&D</SelectItem>
-                                <SelectItem value="it">IT Integration</SelectItem>
-                                <SelectItem value="contracts">General Contracts</SelectItem>
+                                {services.map((service) => (
+                                    <SelectItem key={service.slug} value={service.slug}>{service.name}</SelectItem>
+                                ))}
                             </SelectContent>
                         </Select>
                     </Field>
@@ -156,15 +154,6 @@ export function ContactForm() {
                             in accordance with their GDPR-compliant privacy policy.
                         </label>
                     </div>
-                </div>
-
-                {/* Simulated CAPTCHA */}
-                <div className="bg-muted/30 p-4 border border-border flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 border-2 border-primary rounded" />
-                        <span className="text-sm font-medium">I am not a robot</span>
-                    </div>
-                    <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="Recaptcha" className="h-6 opacity-30" />
                 </div>
 
                 <Button

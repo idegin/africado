@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { services } from "@/lib/data"
+import { getServiceBySlug, getServices } from "@/lib/fetchers"
 import { PageHero } from "@/components/ui/PageHero"
 import { Button } from "@/components/ui/button"
 import { IconCheck, IconArrowRight, IconMessageDots } from "@tabler/icons-react"
@@ -13,30 +13,32 @@ interface ServicePageProps {
 
 export default async function ServiceDetailsPage({ params }: ServicePageProps) {
     const { slug } = await params
-    const service = services.find(s => s.id === slug)
+    const [service, allServices] = await Promise.all([
+        getServiceBySlug(slug),
+        getServices(),
+    ])
 
     if (!service) {
         notFound()
     }
 
-    const otherServices = services.filter(s => s.id !== slug)
+    const otherServices = allServices.filter(s => s.data.slug !== slug)
 
     return (
         <main className="min-h-screen pb-24">
             <PageHero
-                title={service.title}
-                subtitle={service.description}
+                title={service.data.name}
+                subtitle={service.data.short_description}
                 breadcrumbs={[
                     { label: "Home", href: "/" },
                     { label: "Services", href: "/#services" },
-                    { label: service.title, href: `/services/${service.id}` }
+                    { label: service.data.name, href: `/services/${service.data.slug}` }
                 ]}
-                backgroundImage={service.image}
+                backgroundImage={service.data.thumbnail.url}
             />
 
             <div className="container mx-auto px-4 md:px-6 mt-24">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-                    {/* Column 1: Service Details */}
                     <div className="lg:col-span-8 space-y-12">
                         <div className="space-y-8">
                             <div className="inline-flex items-center gap-2 border-l-4 border-primary pl-4">
@@ -46,27 +48,33 @@ export default async function ServiceDetailsPage({ params }: ServicePageProps) {
                                 Strategic <span className="text-primary italic">Solutions</span> for Institutional Growth
                             </h2>
                             <p className="text-xl text-muted-foreground leading-relaxed font-medium">
-                                {service.longDescription}
+                                {service.data.long_description}
                             </p>
                         </div>
 
                         <div className="grid gap-6 md:grid-cols-2">
-                            {service.features.map((feature, i) => (
+                            {service.data.features.map((f, i) => (
                                 <div key={i} className="flex items-start gap-4 p-6 bg-card border border-border group hover:border-primary/50 transition-colors">
                                     <div className="shrink-0 w-8 h-8 bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all">
                                         <IconCheck size={18} strokeWidth={3} />
                                     </div>
-                                    <span className="font-bold text-foreground leading-tight uppercase tracking-tight">{feature}</span>
+                                    <span className="font-bold text-foreground leading-tight uppercase tracking-tight">{f.feature}</span>
                                 </div>
                             ))}
                         </div>
 
-                        {/* CTA Section */}
+                        {service.data.content && (
+                            <div
+                                className="prose prose-lg max-w-none"
+                                dangerouslySetInnerHTML={{ __html: service.data.content }}
+                            />
+                        )}
+
                         <div className="bg-black text-white p-12 md:p-16 border-l-8 border-primary space-y-8">
                             <div className="space-y-4">
                                 <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter">Ready to Begin Your Transformation?</h3>
                                 <p className="text-gray-400 font-medium text-lg leading-relaxed max-w-2xl">
-                                    Schedule a strategy session with our specialized consultants to tailor the {service.title} roadmap to your organization's specific needs.
+                                    Schedule a strategy session with our specialized consultants to tailor the {service.data.name} roadmap to your organization&apos;s specific needs.
                                 </p>
                             </div>
                             <div className="flex flex-wrap gap-4">
@@ -86,7 +94,6 @@ export default async function ServiceDetailsPage({ params }: ServicePageProps) {
                         </div>
                     </div>
 
-                    {/* Column 2: Other Services Overlay */}
                     <div className="lg:col-span-4">
                         <div className="sticky top-24 space-y-8">
                             <div className="p-8 border-2 border-primary bg-background">
@@ -95,17 +102,17 @@ export default async function ServiceDetailsPage({ params }: ServicePageProps) {
                                     {otherServices.map((other) => (
                                         <Link
                                             key={other.id}
-                                            href={`/services/${other.id}`}
+                                            href={`/services/${other.data.slug}`}
                                             className="group flex flex-col p-4 hover:bg-muted transition-all border border-transparent hover:border-border"
                                         >
                                             <div className="flex items-center justify-between mb-2">
                                                 <span className="text-sm font-black uppercase tracking-tight text-foreground group-hover:text-primary transition-colors">
-                                                    {other.title}
+                                                    {other.data.name}
                                                 </span>
                                                 <IconArrowRight size={16} className="text-primary group-hover:translate-x-1 transition-transform" />
                                             </div>
                                             <p className="text-[11px] text-muted-foreground font-medium line-clamp-2 uppercase tracking-wide">
-                                                {other.description}
+                                                {other.data.short_description}
                                             </p>
                                         </Link>
                                     ))}

@@ -1,47 +1,20 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { IconChevronLeft, IconChevronRight, IconStarFilled } from "@tabler/icons-react"
 import { cn } from "@/lib/utils"
+import type { TestimonialEntry } from "@/lib/fetchers"
 
-const testimonials = [
-    {
-        quote: "Africado’s digital identity training empowered our field teams to deploy Nigeria’s national ID system with 99.8% accuracy.",
-        name: "Senior Program Lead",
-        org: "NIMC",
-        logo: "https://upload.wikimedia.org/wikipedia/en/5/52/NIMC_Logo.png",
-        rating: 5
-    },
-    {
-        quote: "The strategic transformation roadmap provided by Africado has redefined our operational resilience in the agricultural sector.",
-        name: "Director of Operations",
-        org: "AFEX",
-        logo: "https://afexnigeria.com/wp-content/uploads/2021/05/afex-logo.png",
-        rating: 5
-    },
-    {
-        quote: "Partnering with Africado on human capital development has significantly increased institutional productivity across our regional offices.",
-        name: "Technical Advisor",
-        org: "UNFPA",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/e/ec/UNFPA_logo.svg",
-        rating: 5
-    },
-    {
-        quote: "Excellent delivery on specialized research projects. Their insights into African emerging markets are unparalleled.",
-        name: "Regional Manager",
-        org: "World Bank",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/e/e2/World_Bank_Group_logo.svg",
-        rating: 5
-    }
-]
+interface TestimonialsProps {
+    testimonials: TestimonialEntry[]
+}
 
-export function Testimonials() {
+export function Testimonials({ testimonials }: TestimonialsProps) {
     const [activeIndex, setActiveIndex] = useState(0)
     const [isPaused, setIsPaused] = useState(false)
     const [touchStart, setTouchStart] = useState<number | null>(null)
     const [touchEnd, setTouchEnd] = useState<number | null>(null)
 
-    // Minimum swipe distance in pixels
     const minSwipeDistance = 50
 
     useEffect(() => {
@@ -50,7 +23,7 @@ export function Testimonials() {
             setActiveIndex((prev: number) => (prev + 1) % testimonials.length)
         }, 5000)
         return () => clearInterval(interval)
-    }, [isPaused])
+    }, [isPaused, testimonials.length])
 
     const onTouchStart = (e: React.TouchEvent) => {
         setTouchEnd(null)
@@ -76,7 +49,6 @@ export function Testimonials() {
 
     return (
         <section className="relative py-32 overflow-hidden bg-background">
-            {/* Adinkra-inspired pattern background (Subtle) */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
                 backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l10 20h-20l10-20zm0 60l-10-20h20l-10 20zm30-30l-20 10v-20l20 10zm-60 0l20-10v20l-20-10z' fill='%23000' fill-opacity='1'/%3E%3C/svg%3E")`,
                 backgroundSize: '80px 80px'
@@ -97,9 +69,9 @@ export function Testimonials() {
                     onTouchEnd={onTouchEnd}
                 >
                     <div className="overflow-hidden relative min-h-[400px]">
-                        {testimonials.map((t, i) => (
+                        {testimonials.map((entry, i) => (
                             <div
-                                key={i}
+                                key={entry.id}
                                 className={cn(
                                     "absolute inset-0 transition-all duration-700 ease-in-out flex items-center justify-center p-4",
                                     activeIndex === i ? "translate-x-0 opacity-100 scale-100" : (i < activeIndex ? "-translate-x-full opacity-0 scale-95" : "translate-x-full opacity-0 scale-95")
@@ -107,21 +79,18 @@ export function Testimonials() {
                             >
                                 <div className="bg-white border border-border shadow-sm p-12 md:p-16 rounded-none text-center space-y-8 transition-all hover:shadow-2xl hover:-translate-y-2">
                                     <div className="flex justify-center gap-1">
-                                        {[...Array(t.rating)].map((_, j) => (
+                                        {[...Array(entry.data.rating)].map((_, j) => (
                                             <IconStarFilled key={j} className="text-primary" size={16} />
                                         ))}
                                     </div>
 
                                     <blockquote className="text-2xl md:text-3xl font-medium leading-relaxed italic text-foreground tracking-tight">
-                                        "{t.quote}"
+                                        &ldquo;{entry.data.quote}&rdquo;
                                     </blockquote>
 
                                     <div className="flex flex-col items-center space-y-4">
-                                        <div className="h-12 w-32 flex items-center justify-center grayscale opacity-60">
-                                            <img src={t.logo} alt={t.org} className="max-h-full max-w-full object-contain" />
-                                        </div>
                                         <div>
-                                            <p className="font-black text-foreground uppercase tracking-wider">{t.name}, {t.org}</p>
+                                            <p className="font-black text-foreground uppercase tracking-wider">{entry.data.name}, {entry.data.organization}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +98,6 @@ export function Testimonials() {
                         ))}
                     </div>
 
-                    {/* Navigation */}
                     <div className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-16 hidden md:block">
                         <button
                             onClick={() => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
@@ -147,7 +115,6 @@ export function Testimonials() {
                         </button>
                     </div>
 
-                    {/* Dots */}
                     <div className="flex justify-center gap-3 mt-8">
                         {testimonials.map((_, i) => (
                             <button

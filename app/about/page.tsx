@@ -7,13 +7,19 @@ import { Reach } from "@/components/marketing/about/Reach"
 import { FinalCTA } from "@/components/marketing/about/FinalCTA"
 import { Clients } from "@/components/marketing/Clients"
 import { Leadership } from "@/components/marketing/Leadership"
+import { getClients, getPeople } from "@/lib/fetchers"
 
 export const metadata = {
     title: "About Us | Africado Consulting",
     description: "Empowering African Organizations Through Strategic Transformation Since 2013.",
 }
 
-export default function AboutPage() {
+export default async function AboutPage() {
+    const [clients, people] = await Promise.all([
+        getClients(),
+        getPeople(),
+    ])
+
     return (
         <main className="min-h-screen">
             <PageHero
@@ -29,7 +35,7 @@ export default function AboutPage() {
 
             <CoreValues />
 
-            <Leadership />
+            <Leadership people={people} />
 
             <Credentials />
 
@@ -41,7 +47,7 @@ export default function AboutPage() {
                         public service delivery, digital identity, and institutional capacity building.
                     </p>
                 </div>
-                <Clients />
+                <Clients clients={clients} />
             </div>
 
             <Reach />

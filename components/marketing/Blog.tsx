@@ -1,40 +1,13 @@
-"use client"
-
 import Link from "next/link"
 import { IconArrowRight } from "@tabler/icons-react"
 import { BlogCard } from "./blog/BlogCard"
+import type { InsightEntry } from "@/lib/fetchers"
 
-const posts = [
-    {
-        title: "Digital Transformation in Nigerian Public Sector",
-        excerpt: "How government agencies are leveraging modern IT infrastructure to improve service delivery through transparent digital workflows.",
-        date: "May 12, 2024",
-        author: "Godwin Onime",
-        category: "Digital Transformation",
-        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
-        href: "/blog/digital-transformation-public-sector"
-    },
-    {
-        title: "The Future of Human Capital Development",
-        excerpt: "Strategies for organizations to build resilient and highly skilled workforces in the AI era. Focus on lifelong learning.",
-        date: "April 28, 2024",
-        author: "Chinwe Okoro",
-        category: "Human Capital",
-        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800",
-        href: "/blog/future-human-capital"
-    },
-    {
-        title: "Strategic Planning for SME Expansion",
-        excerpt: "Key considerations for small and medium enterprises looking to scale across West African hubs like Accra and Dakar.",
-        date: "March 15, 2024",
-        author: "Sarah Adebayo",
-        category: "Strategy",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-        href: "/blog/sme-expansion-strategy"
-    },
-]
+interface BlogProps {
+    posts: InsightEntry[]
+}
 
-export function Blog() {
+export function Blog({ posts }: BlogProps) {
     return (
         <section id="blog" className="py-24 bg-background">
             <div className="container mx-auto px-4 md:px-6">
@@ -60,8 +33,17 @@ export function Blog() {
                 </div>
 
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    {posts.map((post, index) => (
-                        <BlogCard key={index} {...post} />
+                    {posts.map((entry) => (
+                        <BlogCard
+                            key={entry.id}
+                            title={entry.data.name}
+                            excerpt={entry.data.excerpt}
+                            date={new Date(entry.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+                            author=""
+                            category={entry.data.category?.data?.name ?? ""}
+                            image={entry.data.thumbnail.url}
+                            href={`/blog/${entry.data.slug}`}
+                        />
                     ))}
                 </div>
             </div>

@@ -5,17 +5,25 @@ import { Clients } from "@/components/marketing/Clients";
 import { Blog } from "@/components/marketing/Blog";
 import { CTA } from "@/components/marketing/CTA";
 import { Testimonials } from "@/components/marketing/Testimonials";
+import { getServices, getLatestInsights, getTestimonials, getClients } from "@/lib/fetchers";
 
-export default function Home() {
+export default async function Home() {
+    const [services, insights, testimonials, clients] = await Promise.all([
+        getServices(),
+        getLatestInsights(),
+        getTestimonials(),
+        getClients(),
+    ])
+
     return (
         <>
             <Hero />
-            <Clients />
+            <Clients clients={clients} />
             <About />
-            <Services />
-            <Testimonials />
+            <Services services={services} />
+            <Testimonials testimonials={testimonials} />
             <CTA />
-            <Blog />
+            <Blog posts={insights} />
         </>
     );
 }
