@@ -65,7 +65,9 @@ export function Header({ services }: HeaderProps) {
                 )}
             >
                 <div className="flex h-20 items-center justify-between px-6 border-b border-border shrink-0">
-                    <span className="text-2xl font-black tracking-tighter text-primary" style={{ fontFamily: 'monospace' }}>AFRICADO</span>
+                    <span className="text-2xl font-black tracking-tighter text-primary" style={{ fontFamily: 'monospace' }}>
+                        <img src='/img/logoo.jpeg' width={150} />
+                    </span>
                     <button onClick={() => setIsOpen(false)} className="text-primary p-2">
                         <IconX size={32} />
                     </button>
@@ -120,10 +122,12 @@ export function Header({ services }: HeaderProps) {
 
     return (
         <>
-            <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/90">
+            <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background">
                 <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
                     <Link href="/" className="flex items-center space-x-2">
-                        <span className="text-3xl font-black tracking-tighter text-primary" style={{ fontFamily: 'monospace' }}>AFRICADO</span>
+                        <span className="text-3xl font-black tracking-tighter text-primary" style={{ fontFamily: 'monospace' }}>
+                            <img src='/img/logoo.jpeg' width={150} />
+                        </span>
                     </Link>
 
                     <nav className="hidden md:flex gap-8 text-sm font-bold items-center">

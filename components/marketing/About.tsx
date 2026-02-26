@@ -16,7 +16,7 @@ export function About() {
                     <div className="relative group">
                         <div className="relative z-10 aspect-square md:aspect-4/5 overflow-hidden rounded-none shadow-2xl">
                             <img
-                                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200"
+                                src="/img/about.png"
                                 alt="Africado Team Collaboration"
                                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />

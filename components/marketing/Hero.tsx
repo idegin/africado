@@ -12,7 +12,7 @@ export function Hero() {
                 <img
                     alt="Strategic Consulting"
                     className="object-cover w-full h-full opacity-60"
-                    src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=2000"
+                    src="/img/herofx.png"
                 />
                 {/* Gradient Overlays */}
                 <div className="absolute inset-0 bg-linear-to-r from-black via-black/80 to-transparent" />

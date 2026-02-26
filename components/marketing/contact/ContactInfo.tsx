@@ -43,7 +43,7 @@ export function ContactInfo() {
                     </div>
                     <div>
                         <h4 className="font-bold text-lg mb-1">Email Address</h4>
-                        <p className="text-muted-foreground">africadonig@gmail.com</p>
+                        <p className="text-muted-foreground">hello@africado.ng | projects@africado.ng</p>
                         <p className="text-muted-foreground">info@africado.ng</p>
                     </div>
                 </div>

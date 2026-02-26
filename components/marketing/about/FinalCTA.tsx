@@ -49,7 +49,7 @@ export function FinalCTA() {
                         </div>
                         <div className="space-y-1">
                             <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">Primary Email</p>
-                            <p className="text-xl font-bold text-white">africadonig@gmail.com</p>
+                            <p className="text-xl font-bold text-white">hello@africado.ng | projects@africado.ng</p>
                         </div>
                         <div className="space-y-1">
                             <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">Website</p>

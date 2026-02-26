@@ -57,7 +57,7 @@ export function CTA() {
                             </div>
                             <div>
                                 <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">Email Us</p>
-                                <p className="font-semibold">africadonig@gmail.com</p>
+                                <p className="font-semibold">hello@africado.ng | projects@africado.ng</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-3 text-white/90">
