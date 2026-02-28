@@ -26,8 +26,6 @@ export const getServices = unstable_cache(
         const res = await getAll("our-services")
         return res.data.entries
     },
-    ["services"],
-    { revalidate: 3600 }
 )
 
 export const getLatestInsights = unstable_cache(
@@ -35,8 +33,6 @@ export const getLatestInsights = unstable_cache(
         const res = await getAll("insights", { limit: 3, page: 1 })
         return res.data.entries
     },
-    ["latest-insights"],
-    { revalidate: 3600 }
 )
 
 export const getTestimonials = unstable_cache(
@@ -53,8 +49,6 @@ export const getInsights = unstable_cache(
         const res = await getAll("insights", { page, limit })
         return { entries: res.data.entries, pagination: res.data.pagination }
     },
-    ["insights"],
-    { revalidate: 3600 }
 )
 
 export const getServiceBySlug = unstable_cache(
@@ -66,8 +60,6 @@ export const getServiceBySlug = unstable_cache(
             return null
         }
     },
-    ["service-by-slug"],
-    { revalidate: 3600 }
 )
 
 export const getInsightBySlug = unstable_cache(
@@ -79,8 +71,6 @@ export const getInsightBySlug = unstable_cache(
             return null
         }
     },
-    ["insight-by-slug"],
-    { revalidate: 3600 }
 )
 
 export const getCategories = unstable_cache(
@@ -88,8 +78,6 @@ export const getCategories = unstable_cache(
         const res = await getAll("our-categories")
         return res.data.entries
     },
-    ["categories"],
-    { revalidate: 3600 }
 )
 
 export const getClients = unstable_cache(
@@ -97,8 +85,6 @@ export const getClients = unstable_cache(
         const res = await getAll("our-clients")
         return res.data.entries
     },
-    ["clients"],
-    { revalidate: 3600 }
 )
 
 export const getPeople = unstable_cache(
@@ -106,8 +92,6 @@ export const getPeople = unstable_cache(
         const res = await getAll("our-people")
         return res.data.entries
     },
-    ["people"],
-    { revalidate: 3600 }
 )
 
 async function cmsRawRequest<T>(path: string): Promise<T> {
