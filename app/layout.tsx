@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { getServices } from "@/lib/fetchers";
+import Providers from "./providers";
 
 const figtree = Figtree({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -34,11 +35,13 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header services={services.map(s => ({ name: s.data.name, href: `/services/${s.data.slug}` }))} />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <Header services={services.map(s => ({ name: s.data.name, href: `/services/${s.data.slug}` }))} />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
