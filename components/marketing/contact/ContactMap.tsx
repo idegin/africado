@@ -1,5 +1,7 @@
 "use client"
 
+import { APP_DATA } from "@/lib/data"
+
 export function ContactMap() {
     return (
         <section className="w-full h-[500px] bg-muted relative overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
@@ -19,7 +21,7 @@ export function ContactMap() {
             <div className="absolute top-8 right-8 z-10 bg-background/90 backdrop-blur border border-border p-4 shadow-xl max-w-xs hidden md:block animate-in fade-in slide-in-from-right duration-700">
                 <p className="font-bold text-sm">Visit Our HQ</p>
                 <p className="text-xs text-muted-foreground mt-1">
-                    1, M.M. Alkali Street, CITEC Villa Estate, Gwarimpa, Abuja.
+                    {APP_DATA.address}
                 </p>
             </div>
         </section>

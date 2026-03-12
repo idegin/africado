@@ -1,5 +1,6 @@
 "use client"
 
+import { APP_DATA } from "@/lib/data"
 import { IconMapPin, IconRoute, IconWorldUp } from "@tabler/icons-react"
 
 export function Reach() {
@@ -24,7 +25,7 @@ export function Reach() {
                                 <div className="space-y-1">
                                     <h4 className="text-xl font-bold uppercase tracking-tight">Abuja Headquarters</h4>
                                     <p className="text-muted-foreground">
-                                        1, M.M. Alkali Street, CITEC Villa Estate, Gwarimpa, Abuja.
+                                        {APP_DATA.address}
                                     </p>
                                     <p className="text-sm font-semibold text-primary">Nationwide reach: Lagos | Port Harcourt | Kano</p>
                                 </div>

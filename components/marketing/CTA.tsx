@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { IconMail, IconPhone, IconWorld, IconDownload, IconCalendar } from "@tabler/icons-react"
+import { APP_DATA } from "@/lib/data"
 
 export function CTA() {
     return (
@@ -34,7 +35,7 @@ export function CTA() {
                             <IconCalendar className="mr-2 h-6 w-6" />
                             Schedule a Free Consultation
                         </Button>
-                        <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-bold bg-white/10 text-white border-white/20 hover:bg-white/20">
+                        <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-bold bg-white/10 text-white border-white/20 hover:bg-white/80">
                             <IconDownload className="mr-2 h-6 w-6" />
                             Download Our Service Brochure
                         </Button>
@@ -47,8 +48,8 @@ export function CTA() {
                             </div>
                             <div>
                                 <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">Call Us</p>
-                                <p className="font-semibold text-sm">+234 704 747 0548</p>
-                                <p className="font-semibold text-sm">+234 803 897 5857</p>
+                                <p className="font-semibold text-sm">{APP_DATA.phoneNumber}</p>
+                                <p className="font-semibold text-sm">{APP_DATA.phoneNumber2}</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-3 text-white/90">

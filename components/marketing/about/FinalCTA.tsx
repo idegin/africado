@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { IconArrowRight, IconDownload } from "@tabler/icons-react"
+import { APP_DATA } from "@/lib/data"
 
 export function FinalCTA() {
     return (
@@ -45,11 +46,11 @@ export function FinalCTA() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-white/10">
                         <div className="space-y-1">
                             <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">Inquiries</p>
-                            <p className="text-xl font-bold text-white">+234 704 747 0548</p>
+                            <p className="text-xl font-bold text-white">{APP_DATA.phoneNumber}</p>
                         </div>
                         <div className="space-y-1">
                             <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">Primary Email</p>
-                            <p className="text-xl font-bold text-white">hello@africado.ng | projects@africado.ng</p>
+                            <p className="text-xl font-bold text-white">{APP_DATA.email1} | {APP_DATA.email2}</p>
                         </div>
                         <div className="space-y-1">
                             <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">Website</p>

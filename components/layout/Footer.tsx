@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { IconBrandLinkedin, IconBrandX, IconBrandInstagram } from "@tabler/icons-react"
+import { APP_DATA } from "@/lib/data"
 
 export function Footer() {
     return (
@@ -39,9 +40,9 @@ export function Footer() {
 
                     <div className="max-w-md space-y-3 text-center px-4">
                         <p className="text-sm text-gray-400 font-medium leading-relaxed">
-                            1 M.M. Alkali Street, 442 Crescent, CITEC Villa Estate, 4th Avenue, Gwarimpa, Abuja, Nigeria.
+                            {APP_DATA.address}
                         </p>
-                        <p className="text-sm text-primary font-bold break-all sm:break-normal">+234 704 747 0548 | hello@africado.ng | projects@africado.ng</p>
+                        <p className="text-sm text-primary font-bold break-all sm:break-normal">{APP_DATA.phoneNumber} | {APP_DATA.email1} | {APP_DATA.email2}</p>
                     </div>
 
                     <div className="w-full pt-8 md:pt-12 border-t border-white/5 flex flex-col gap-4 md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold text-gray-600 text-center">

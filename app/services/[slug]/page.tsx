@@ -84,12 +84,12 @@ export default async function ServiceDetailsPage({ params }: ServicePageProps) {
                                         <IconArrowRight size={20} className="ml-2" />
                                     </Link>
                                 </Button>
-                                <Button variant="outline" size="lg" className="h-16 px-10 rounded-none text-base font-black uppercase tracking-widest border-white/20 hover:bg-white/10" asChild>
+                                {/* <Button variant="outline" size="lg" className="h-16 px-10 rounded-none text-base font-black uppercase tracking-widest border-white/20 hover:bg-white/80 text-black" asChild>
                                     <Link href="/contact">
                                         <IconMessageDots size={20} className="mr-2" />
                                         Inquire Now
                                     </Link>
-                                </Button>
+                                </Button> */}
                             </div>
                         </div>
                     </div>

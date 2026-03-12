@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { getServices } from "@/lib/fetchers";
 import Providers from "./providers";
+import { APP_DATA } from "@/lib/data";
 
 const figtree = Figtree({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -19,8 +20,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Africado - Empowering African Businesses with Intelligent Growth Solutions",
-  description: "Africado is a leading consulting firm dedicated to driving growth and innovation for African businesses. We specialize in delivering tailored solutions that empower our clients to thrive in the dynamic African market. Our expertise spans across strategy, digital transformation, and operational excellence, enabling us to unlock new opportunities and create sustainable value for our clients. With a deep understanding of the unique challenges and opportunities in Africa, we are committed to helping businesses navigate the complexities of the continent and achieve their growth objectives.",
+  title: `${APP_DATA.name} - Empowering African Businesses with Intelligent Growth Solutions`,
+  description: APP_DATA.description,
 };
 
 export default async function RootLayout({

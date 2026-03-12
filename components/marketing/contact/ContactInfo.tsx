@@ -1,5 +1,6 @@
 "use client"
 
+import { APP_DATA } from "@/lib/data"
 import { IconPhone, IconMail, IconMapPin, IconClock, IconBrandLinkedin, IconBrandTwitter, IconBrandFacebook } from "@tabler/icons-react"
 
 export function ContactInfo() {
@@ -20,8 +21,7 @@ export function ContactInfo() {
                     <div>
                         <h4 className="font-bold text-lg mb-1">Our Office</h4>
                         <p className="text-muted-foreground leading-relaxed">
-                            1, M.M. Alkali Street, CITEC Villa Estate,<br />
-                            Gwarimpa, Abuja, FCT, Nigeria.
+                            {APP_DATA.address}
                         </p>
                     </div>
                 </div>
@@ -32,8 +32,8 @@ export function ContactInfo() {
                     </div>
                     <div>
                         <h4 className="font-bold text-lg mb-1">Phone Numbers</h4>
-                        <p className="text-muted-foreground">+234 704 747 0548</p>
-                        <p className="text-muted-foreground">+234 803 897 5857</p>
+                        <p className="text-muted-foreground">{APP_DATA.phoneNumber}</p>
+                        <p className="text-muted-foreground">{APP_DATA.phoneNumber2}</p>
                     </div>
                 </div>
 
@@ -43,8 +43,8 @@ export function ContactInfo() {
                     </div>
                     <div>
                         <h4 className="font-bold text-lg mb-1">Email Address</h4>
-                        <p className="text-muted-foreground">hello@africado.ng | projects@africado.ng</p>
-                        <p className="text-muted-foreground">info@africado.ng</p>
+                        <p className="text-muted-foreground">{APP_DATA.email1} | {APP_DATA.email2}</p>
+                        <p className="text-muted-foreground">{APP_DATA.email3}</p>
                     </div>
                 </div>
 
