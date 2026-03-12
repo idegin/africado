@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { IconMail, IconPhone, IconWorld, IconDownload, IconCalendar } from "@tabler/icons-react"
 import { APP_DATA } from "@/lib/data"
+import Link from "next/link"
 
 export function CTA() {
     return (
@@ -31,13 +32,17 @@ export function CTA() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <Button size="lg" className="h-14 px-8 text-lg font-bold">
-                            <IconCalendar className="mr-2 h-6 w-6" />
-                            Schedule a Free Consultation
+                        <Button size="lg" className="h-14 px-8 text-lg font-bold" asChild>
+                            <Link href="/contact">
+                                <IconCalendar className="mr-2 h-6 w-6" />
+                                Schedule a Free Consultation
+                            </Link>
                         </Button>
-                        <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-bold bg-white/10 text-white border-white/20 hover:bg-white/80">
-                            <IconDownload className="mr-2 h-6 w-6" />
-                            Download Our Service Brochure
+                        <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-bold bg-white/10 text-white border-white/20 hover:bg-white/80" asChild>
+                            <a href="/AFRICADO CONSULTING PROFILE.pdf" download="AFRICADO CONSULTING PROFILE.pdf">
+                                <IconDownload className="mr-2 h-6 w-6" />
+                                Download Our Service Brochure
+                            </a>
                         </Button>
                     </div>
 
