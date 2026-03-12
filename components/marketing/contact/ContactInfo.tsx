@@ -44,7 +44,7 @@ export function ContactInfo() {
                     <div>
                         <h4 className="font-bold text-lg mb-1">Email Address</h4>
                         <p className="text-muted-foreground">{APP_DATA.email1} | {APP_DATA.email2}</p>
-                        <p className="text-muted-foreground">{APP_DATA.email3}</p>
+                        <p className="text-muted-foreground">{APP_DATA.email2}</p>
                     </div>
                 </div>
 
