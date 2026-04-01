@@ -35,7 +35,7 @@ export default async function AboutPage() {
 
             <CoreValues />
 
-            <Leadership people={people} />
+            {/* <Leadership people={people} /> */}
 
             <Credentials />
 
