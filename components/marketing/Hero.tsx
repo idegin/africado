@@ -28,7 +28,7 @@ export function Hero() {
 
                         <div className="space-y-6">
                             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1]">
-                                <span className="block drop-shadow-2xl">Empowering African</span>
+                                <span className="block drop-shadow-2xl">Powering Africa's</span>
                                 <span className="block text-primary drop-shadow-2xl">Growth.</span>
                             </h1>
                             <p className="max-w-[700px] text-xl text-gray-300 md:text-2xl leading-relaxed font-medium">
