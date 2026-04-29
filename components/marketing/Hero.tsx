@@ -37,13 +37,13 @@ export function Hero() {
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <Button asChild size="lg" className="rounded-none h-16 px-10 text-lg font-bold transition-all hover:bg-white hover:text-primary group">
+                            <Button asChild size="lg" className="rounded-none h-16 px-10 text-lg font-bold transition-all hover:bg-white group">
                                 <Link href="/contact">
                                     Get Started Today
                                     <IconArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
                                 </Link>
                             </Button>
-                            <Button asChild size="lg" variant="outline" className="rounded-none h-16 px-10 text-lg font-bold border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/20 transition-all">
+                            <Button asChild size="lg" variant="outline" className="rounded-none h-16 px-10 text-lg font-bold border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/20 transition-all hover:text-white">
                                 <Link href="/about">
                                     Discover Our Strategy
                                 </Link>
